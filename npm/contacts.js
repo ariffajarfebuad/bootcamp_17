@@ -28,7 +28,7 @@ saveContact = (name, mobile, email) => {
   const contacts = JSON.parse(file);
   contacts.push(contact);
   fs.writeFileSync("data/contacts.json", JSON.stringify(contacts));
-  console.log("thank you ");
+  console.log("thank you");
   rl.close();
 };
 
