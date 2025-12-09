@@ -1,58 +1,58 @@
-const fs = require("fs");
-const path = require("path");
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 
-const dirPath = "./data";
-if (!fs.existsSync(dirPath)) {
-  fs.mkdirSync(dirPath);
-}
-const dataPath = "./data/contacts.json";
-if (!fs.existsSync(dataPath)) {
-  fs.writeFileSync(dataPath, "[]", "utf-8");
-}
+// Import functions from contact.js
+const {
+  saveContact,
+  listContact,
+  detailContact,
+  deleteContact,
+} = require("./contact");
 
+// YARGS Commands
 yargs(hideBin(process.argv))
   .command({
     command: "add",
-    describe: "Menambahkan contact baru",
+    describe: "Add new contact",
     builder: {
-      name: {
-        describe: "Nama lengkap",
-        demandOption: true,
-        type: "string",
-      },
-      email: {
-        describe: "Email",
-        demandOption: true,
-        type: "string",
-      },
-      mobile: {
-        describe: "Nomor HP",
-        demandOption: true,
-        type: "string",
-      },
+      name: { describe: "Full name", demandOption: true, type: "string" },
+      email: { describe: "Email", demandOption: false, type: "string" },
+      mobile: { describe: "Mobile number", demandOption: true, type: "string" },
     },
     handler(argv) {
-      // Langsung load file JSON
-      const file = fs.readFileSync(dataPath, "utf-8");
-      const contacts = JSON.parse(file);
-
-      // Data baru
-      const newContact = {
-        name: argv.name,
-        email: argv.email,
-        mobile: argv.mobile,
-      };
-
-      // Tambah ke array
-      contacts.push(newContact);
-
-      // Simpan
-      fs.writeFileSync(dataPath, JSON.stringify(contacts, null, 2));
-
-      console.log(" Contactnya akan kesimpan ya!");
+      saveContact(argv.name, argv.email, argv.mobile);
     },
   })
+
+  .command({
+    command: "list",
+    describe: "Show contact list",
+    handler() {
+      listContact();
+    },
+  })
+
+  .command({
+    command: "detail",
+    describe: "Show contact detail",
+    builder: {
+      name: { describe: "Full name", demandOption: true, type: "string" },
+    },
+    handler(argv) {
+      detailContact(argv.name);
+    },
+  })
+
+  .command({
+    command: "delete",
+    describe: "Delete a contact",
+    builder: {
+      name: { describe: "Full name", demandOption: true, type: "string" },
+    },
+    handler(argv) {
+      deleteContact(argv.name);
+    },
+  })
+
   .demandCommand()
   .parse();
