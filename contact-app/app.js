@@ -137,10 +137,9 @@ app.get("/contact/edit/:name", (req, res) => {
 app.post(
   "/contact/update",
   [
-    // Validator Ubah Kontak: Cek duplikat nama (Hanya jika namanya diganti)
+    // Validator Ubah Kontak: Cek duplikat nama
     body("name").custom((value, { req }) => {
       const duplikat = findContact(value);
-      // Jika nama yang diinput BERBEDA dengan nama LAMA (oldNama) DAN nama BARU itu duplikat
       if (value !== req.body.oldNama && duplikat) {
         throw new Error("Nama kontak sudah digunakan!");
       }
@@ -157,7 +156,7 @@ app.post(
         title: "Form Ubah Data Kontak",
         layout: "layout/main-layouts",
         errors: errors.array(),
-        contact: req.body, // Kirimkan req.body agar input terisi kembali
+        contact: req.body,
       });
     }
 
