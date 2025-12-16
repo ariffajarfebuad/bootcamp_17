@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+    <br>
+      <h2> Daftar contact</h2>
+        <a href="/contact/add" class="btn btn-primary mb-2"> Tambah Data contact</a>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Mobilephone</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (contacts.lenght === 0 ) { %>
+             <tr>
+              <td colspan="4">
+                <div class="alert alert-danger" role="alert">
+                data kontak tidak ada 
+                </div>
+
+              </td>
+             </tr>
+              
+            <% } %>
+
+
+           <% contacts.forEach((contact, i )=> { i++ %> 
+              <tr>
+              <th scope="row"><%= i++ %></th>
+              <td><%= contact.name %></td>
+              <td><%= contact.mobile %></td>
+              <td>
+                <a href="/contact/<%= contact.name %>" class="btn btn-primary btn-sm">detail</a>
+                <a href="/contact/delete/<%= contact.name %>"class="btn btn-danger btn-sm"
+                  onclick="return confirm('Are you sure you want to delete <%= contact.name %>?')">
+                      Delete</a>           
+             </td>
+            </tr>
+            <% }) %>
+           
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

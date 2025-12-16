@@ -1,0 +1,14 @@
+    <br>
+    <h2>List contact</h2>
+    <% if (contact < 2) { %>
+     <p>contact is empty</p>
+    <% } else {%>
+    <% contact.forEach(contacts => { %>
+        <ul>
+            <li> name : <%= contacts.name  %> </li>
+            <li> email: <%= contacts.email %> </li>
+             <li> mobile: <%= contacts.mobile %> </li>
+
+
+        </ul>
+    <% }) }%>
