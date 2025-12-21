@@ -1,0 +1,26 @@
+.container {
+  padding: 40px;
+}
+
+.full-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.nav-left {
+  font-weight: bold;
+}
+
+/* Right menu */
+.nav-right {
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+
+
