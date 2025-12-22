@@ -1,0 +1,16 @@
+{
+  "name": "yargs",
+  "version": "1.0.0",
+  "description": "yargs",
+  "main": "appss.js",
+  "scripts": {
+    "start": "node appss.js",
+    "dev": "node apps.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fajar",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.15.23"
+  }
+}

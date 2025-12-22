@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "pg": "^8.16.3",
+    "validator": "^13.15.23",
+    "yargs": "^18.0.0"
+  },
+  "name": "bootcamp_17",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariffajarfebuad/bootcamp_17.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariffajarfebuad/bootcamp_17/issues"
+  },
+  "homepage": "https://github.com/ariffajarfebuad/bootcamp_17#readme",
+  "description": ""
+}

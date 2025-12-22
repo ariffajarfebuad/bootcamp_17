@@ -36,6 +36,7 @@
 
 import "./App.css";
 import Comment from "./Comment.jsx";
+import Counting from "./components/Count.jsx";
 
 function App() {
   const batch = 17;
@@ -71,7 +72,10 @@ function App() {
       </ul>
     <h1>Comments section</h1>
     <Comment />
-   
+
+    <h1>Counting section</h1>
+    <Counting />
+
     </div>
   );
 }

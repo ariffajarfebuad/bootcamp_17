@@ -45,7 +45,7 @@ const updateContact = (newContact) => {
   const contacts = loadContact();
 
   const filteredContacts = contacts.filter(
-    (contact) => contact.name !== newContact.oldName
+    (contact) => contact.name.toLowerCase !== newContact.oldName.toLowerCase()
   );
 
   delete newContact.oldName;
